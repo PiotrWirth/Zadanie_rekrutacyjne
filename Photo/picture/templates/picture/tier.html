@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if account.tier == 'Basic' %}
+
+        <label for="">Link to 200 px thumbnail</label>
+        <br>
+        <a href="{{ photo.thumbnail200x200.url }}">"{{ photo.thumbnail200x200.url }}"</a>
+
+    {% elif account.tier == 'Premium' %}
+
+        <label for="">Link to 200 px thumbnail</label>
+        <br>
+        <a href="{{ photo.thumbnail200x200.url }}">"{{ photo.thumbnail200x200.url }}"</a>
+        <br>
+        <label for="">Link to 400 px thumbnail</label>
+        <br>
+        <a href="{{ photo.thumbnail400x400.url }}">"{{ photo.thumbnail400x400.url }}"</a>
+        <br>
+        <label for="">Link to original image</label>
+        <br>
+        <a href="{{ photo.image.url }}">"{{ photo.image.url }}"</a>
+
+    {% elif account.tier == 'Enterprise' %}
+
+        <label for="">Link to 200 px thumbnail</label>
+        <br>
+        <a href="{{ photo.thumbnail200x200.url }}">"{{ photo.thumbnail200x200.url }}"</a>
+        <label for="">Link to 400 px thumbnail</label>
+        <br>
+        <a href="{{ photo.thumbnail400x400.url }}">"{{ photo.thumbnail400x400.url }}"</a>
+        <label for="">Link to original image</label>
+        <br>
+        <a href="{{ photo.image.url }}">"{{ photo.image.url }}"</a>
+
+    {% endif %}
+
+{% endblock  %}
