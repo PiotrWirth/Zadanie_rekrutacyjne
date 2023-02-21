@@ -8,6 +8,8 @@ from .models import Picture
 
 @login_required
 def picture_upload(request):
+    current_user = request.user
+    account = Profile.objects.get(user=current_user)
     if request.method == 'POST':
         form = UploadPictureForm(data=request.POST, files=request.FILES)
         if form.is_valid():
@@ -17,7 +19,7 @@ def picture_upload(request):
             return redirect('picture:tier')
     else:
         form = UploadPictureForm(data=request.GET)
-    return render(request, 'picture/upload.html',{'form':form})
+    return render(request, 'picture/upload.html',{'form':form,'account':account})
 
 def tier(request):
     current_user = request.user

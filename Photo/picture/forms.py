@@ -4,5 +4,5 @@ from django import forms
 class UploadPictureForm(forms.ModelForm):
     class Meta:
         model = Picture
-        fields = ('image',)
+        fields = ('image','time_passed')
         

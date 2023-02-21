@@ -6,7 +6,11 @@
     <div>
         <label  for="">Upload image</label>
         <div>
-            {{form.as_p}}
+            {{ form.image }}
+            {%if account.tier == 'Enterprise' %}
+                <h2>How many seconds?</h2>
+                {{ form.time_passed }}
+            {% endif %}
         </div>
     </div> 
     <button type='submit'>Submit</button>
