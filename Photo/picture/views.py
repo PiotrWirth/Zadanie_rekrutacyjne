@@ -3,6 +3,7 @@ from .forms import UploadPictureForm
 from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
 from .models import Picture
+from datetime import datetime
 
 # Create your views here.
 
@@ -26,3 +27,5 @@ def tier(request):
     account = Profile.objects.get(user=current_user)
     photo = Picture.objects.filter(user=current_user).order_by('-id')[0]
     return render(request, 'picture/tier.html',{'account':account, 'photo':photo})
+
+
